@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   APP_SECRET ='scoobysama'
-	before_action :authenticate, only: [:show, :me]
+	before_action :authenticate, only: [:show, :me, :create_habit]
 
 	def me
 		render json: { user: @current_user}, status: 200
@@ -11,7 +11,11 @@ class UsersController < ApplicationController
 	end
 
 	def login
-		user = User.find_by(email: params[:email])
+		user = User.find_by(email: paramuser = User.find(params[:id])
+		if @current_user.id != user.id
+
+		ends[:email])
+		p params
 		if user && user.authenticate(params[:password])
 			#encode a token to send back
 			token = JWT.encode({user_id: user.id, username: user.username}, APP_SECRET, 'HS256')
@@ -31,10 +35,15 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def create_habit
+		habit = Habit.create(name: params[:name], user_id: @current_user.id)
+		render json: {habit: habit}, 202
+	end
+
 	def show
 		user = User.find(params[:id])
 		if @current_user.id == user.id
-			render json: {user: user}, status: 200
+			render json: {user: user, habits: user.habits}, status: 200
 		else
 			render json: {error: "Access denied, imposter!"}, status: 401
 		end
