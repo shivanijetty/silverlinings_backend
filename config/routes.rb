@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/users/:id', to: 'users#show'
   post '/create_habit/:name', to: 'users#create_habit'
+  get '/habits', to: 'habits#index'
 end

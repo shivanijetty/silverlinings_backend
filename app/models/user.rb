@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :habits
-  has_many :activities, through: :habits
+  has_many :activities
+  has_many :habits, through: :activities
+  
 end

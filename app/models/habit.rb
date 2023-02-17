@@ -1,4 +1,4 @@
 class Habit < ApplicationRecord
-  belongs_to :user
-  has_many :activities, through: :user 
+  has_many :activities
+  has_many :users, through: :activities
 end
