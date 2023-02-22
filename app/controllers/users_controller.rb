@@ -41,5 +41,23 @@ class UsersController < ApplicationController
 		user = User.find_by(id: params[:id])
 		render json: user
 	end
+
+	def my_habits
+		user = User.find_by(id: params[:id])
+		if user
+		render json: user.habits
+		end
+	end
+
+	# def update_my_habits
+	# 	user = User.find_by!(id: params[:id], habits: params[:habits])
+	# 	if user.update(user_params)
+	# 		render json: user
+	# end
+
+	
 end
+
+
+
 
