@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
 	def create_habit
 		habit = Habit.create(name: params[:name], user_id: @current_user.id)
-		render json: {habit: habit}, status: 202
+		render json: {habit: habit}, status: 200
 	end
 
 	def show
