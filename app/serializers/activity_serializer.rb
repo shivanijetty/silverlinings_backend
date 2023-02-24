@@ -1,5 +1,5 @@
 class ActivitySerializer < ActiveModel::Serializer
-  attributes :counter
+  attributes :progress, :habit_image
 
 
 end

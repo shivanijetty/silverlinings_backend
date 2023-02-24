@@ -49,12 +49,12 @@ class UsersController < ApplicationController
 		end
 	end
 
-	# def update_my_habits
-	# 	user = User.find_by!(id: params[:id], habits: params[:habits])
-	# 	if user.update(user_params)
-	# 		render json: user
-	# end
-
+	def my_progress
+		user = User.find_by(id: params[:id])
+		if user
+		render json: user.activities
+		end
+  end
 	
 end
 

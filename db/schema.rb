@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 2023_02_14_151003) do
   create_table "activities", force: :cascade do |t|
     t.integer "user_id"
     t.integer "habit_id"
-    t.integer "counter", default: 0
+    t.string "habit_image"
+    t.integer "progress", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

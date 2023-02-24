@@ -25,7 +25,7 @@ vitamins = Habit.create(name: 'vitamins', image: 'https://cdn.discordapp.com/att
 
 p "habits created!"
 
-Activity.create!(user_id: User.first.id, habit_id: Habit.first.id)
-Activity.create!(user_id: User.first.id, habit_id: Habit.second.id)
+Activity.create!(user_id: User.first.id, habit_id: Habit.first.id, habit_image: 'https://cdn.discordapp.com/attachments/1075443907208433806/1075572167477043200/workout.png')
+Activity.create!(user_id: User.first.id, habit_id: Habit.second.id, habit_image: 'https://cdn.discordapp.com/attachments/1075443907208433806/1075572716922478693/cooking.png')
 
 p "activities created!"
