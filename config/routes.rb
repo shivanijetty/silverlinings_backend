@@ -6,15 +6,19 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   get '/me', to: 'users#me'
   get '/users/:id', to: 'users#show'
-  get '/habits', to: 'habits#index'
   get '/users/:id/habits', to: 'users#my_habits'
   get '/users/:id/activities', to: 'users#my_progress'
+  get '/habits', to: 'habits#index'
+  get 'activities/:id', to: 'activities#show'
+  get 'activities', to: 'activities#index'
 
   post '/login', to: 'users#login'
   post '/signup', to: 'users#create'
   post '/enroll', to: 'activities#enroll'
 
-  delete '/activities/:id', to: 'activities#giveup'
+  patch '/users/:id/activities/:id', to: 'activities#track_progress'
+
+  delete '/users/:id/activities/:id', to: 'activities#giveup'
 
 
 end
